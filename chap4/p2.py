@@ -1,30 +1,47 @@
 import random
 
-hero.HP = random.randrange(50,100)
-monster.HP= random.randrange(50,100)
-att = random.randrange(-10,20)
-mtt = random.randrange(-10,20) 
-att.count=0 
+hero = random.randrange(50,100)
+monster= random.randrange(50,100)
 
-while( hero.HP >0 and monster.HP >0):
+count=0 
+hero_HP =0
+monster_HP =0
 
-    hero.HP = hero.HP - att 
-    monster.HP = monster - mtt # left blood
+print("hero HP: ",hero ,"monster HP: ", monster)
 
-    if (att <0 and mtt<0):
-     print("hero(HP: "+(hero.HP+att)+ ", attct:"+ att + fail + "<-> monster(HP:"+( monster.HP+mtt)+", attct:"+ mtt+")"+ fail)  
-    elif(att<0 and mtt >0
-     print("hero(HP: "+(hero.HP+att)+ ", attct:"+ att + fail + "<-> monster(HP:"+ monster.HP+", attct:"+ mtt+")"success)  
-    elif(att>0 and mtt >0)
-     print("hero(HP: "+hero.HP+ ", attct:"+ att + success + "<-> monster(HP:"+ monster.HP+", attct:"+ mtt+")" success)  
-    elif(att>0 and mtt <0)
-     print("hero(HP: "+hero.HP+ ", attct:"+ att + fail + "<-> monster(HP:"+( monster.HP+mtt)+", attct:"+ mtt +")" fail)  
-          
-    att.count = att.count + 1
-if hero.HP > monster.HP:
-        print("hero win!!!")
-        else 
-        print("monster win!!!")
+while hero >0 and monster >0:
+  
+ att = random.randrange(-10,20)
+ mtt = random.randrange(-10,20) 
 
+ hero_HP = hero - att 
+ monster_HP = monster - mtt
+
+ result = ""
+ 
+ print("hero(HP: ",hero, ", attct:", att ,result,end='')
+ if att <=0:
+       print("fail",result,end='')
+ else:
+     print("success",result,end='')
+ 
+ print("<-> monster(HP:",monster, ", attct:", mtt, ")" ,result,end='')
+ if mtt<0:
+       print("fail",result)
+ else:
+     print("success",result)
+     
+ count +=1
+ 
+ hero=hero_HP
+ monster=monster_HP
+  
 print("-----------------------")
-print("Total phase: " + att.count) 
+print("Total phase : ", count)
+if hero > monster:
+        print("hero win!!!")
+else:
+        print("monster win!!!")
+        
+
+
