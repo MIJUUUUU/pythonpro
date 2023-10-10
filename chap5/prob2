@@ -1,0 +1,17 @@
+import random
+
+print("Welcome to Word Jumble !!!!")
+crt_word = str(input(""))
+
+print("Unscramble the letters to make a word.")
+print("Jumbled word :")
+a =random.choice(crt_word.split( ))
+choose = list(a)
+random.shuffle(choose)
+print(choose)
+
+my_answ = str(input(""))
+if my_answ == a:
+    print("Correct !!!!")
+else:
+    print("Sorry, that's not correct. The word was :",a)
