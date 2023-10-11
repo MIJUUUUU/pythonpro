@@ -1,0 +1,44 @@
+print("Your items :")
+
+my_item = str(input(""))
+
+print("Press the enter key to continue.")
+print("You have ", len(my_item.split( )) , "in your possesion.")
+
+if 'healing potion' in my_item:
+    print("Press the enter key to continue.")
+    print("You will live to fight another day.\n")
+    
+print("Enter the index number for an item in inventory : ",end="")
+
+leng = int(input(""))
+print("At index ", leng , "is", (my_item.split()[leng]),"\n")
+
+
+print("Enter the index number to begin a slice :",end="")
+num1 = int(input(""))
+print("Enter the index number to end the slice :",end="")
+num2 = int(input(""))
+print("inventory[ ", num1, " : ", num2, "]",end="")
+
+print("     ",(my_item.split( )[num1:num2]),"\n")
+
+print("press the enter key to continue")
+print("You can find a chest. It contains : ")
+chest = str(input(" "))
+my_item += chest.split( )
+
+print("You add the contests of the chest to your inventory,")
+print(" Your inventory is now : ")
+print((my_item.split( )[:]) , "\n")
+
+print("press the enter key to continue")
+print("Yor use your ",chest,"to buy and orb of future telling.")
+print("Your inventory is now: ",end="")
+
+my_item = my_item - chest.split( )
+chest = "orb of future telling."
+my_item += chest
+print(my_item)
+
+
