@@ -21,7 +21,6 @@ num2 = int(input(""))
 print("inventory[ ", num1, " : ", num2, "]",end="")
 
 print("     ",(my_item[num1:num2]),"\n")
-
 print("press the enter key to continue")
 print("You can find a chest. It contains : ")
 chest = ["gold","gems"]
