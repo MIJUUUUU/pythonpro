@@ -1,9 +1,9 @@
 print("Your items :")
 
-my_item = str(input(""))
-
+my_item = ["sword","armor","shield","healing potion"]
+print(my_item,"\n")
 print("Press the enter key to continue.")
-print("You have ", len(my_item.split( )) , "in your possesion.")
+print("You have ", len(my_item) , "in your possesion.\n")
 
 if 'healing potion' in my_item:
     print("Press the enter key to continue.")
@@ -12,8 +12,7 @@ if 'healing potion' in my_item:
 print("Enter the index number for an item in inventory : ",end="")
 
 leng = int(input(""))
-print("At index ", leng , "is", (my_item.split()[leng]),"\n")
-
+print("At index ", leng , "is", (my_item[leng]),"\n")
 
 print("Enter the index number to begin a slice :",end="")
 num1 = int(input(""))
@@ -21,24 +20,41 @@ print("Enter the index number to end the slice :",end="")
 num2 = int(input(""))
 print("inventory[ ", num1, " : ", num2, "]",end="")
 
-print("     ",(my_item.split( )[num1:num2]),"\n")
+print("     ",(my_item[num1:num2]),"\n")
 
 print("press the enter key to continue")
 print("You can find a chest. It contains : ")
-chest = str(input(" "))
-my_item += chest.split( )
-
-print("You add the contests of the chest to your inventory,")
-print(" Your inventory is now : ")
-print((my_item.split( )[:]) , "\n")
-
-print("press the enter key to continue")
-print("Yor use your ",chest,"to buy and orb of future telling.")
-print("Your inventory is now: ",end="")
-
-my_item = my_item - chest.split( )
-chest = "orb of future telling."
+chest = ["gold","gems"]
+print(chest)
 my_item += chest
+
+print("\npress the enter key to continue.")
+print("You add the contests of the chest to your inventory.")
+print(" Your inventory is now : ")
 print(my_item)
 
+print("\npress the enter key to continue.")
+print("You trade your sword for a crossbow.")
+print("Your inventory is now :")
+my_item[0]="crossbow"
+print(my_item)
+
+print("\npress the enter key to continue.")
+print("Yor use your ",chest[0],"and",chest[1],"to buy and orb of future telling.")
+print("Your inventory is now: ")
+
+my_item[4:6] = ["orb of future telling"]
+print(my_item)
+
+print("\npress the enter key to continue.")
+print("In a great battle, your shield is destroyed.")
+print("Your inventory is now: ")
+del my_item[2]
+print(my_item)
+
+print("\npress the enter key to continue.")
+print("You crossbow and armor are stolen by thieves.")
+print("Your inventory is now: ")
+del my_item[:2]
+print(my_item)
 
