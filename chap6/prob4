@@ -1,0 +1,101 @@
+import random
+
+word_list = ('cute', 'kill', 'refrigerator', 'cookie','thursday')
+selected_word = random.choice(word_list)
+guessed_word = ["-"] * len(selected_word)
+remaining_attempts = 6
+guessed_letters = []
+
+def display_hangman(incorrect_attempts):
+    hangman_images = [
+        '''
+         -------
+         |     |
+         |
+         |
+         |
+         |
+        -----------
+        ''',
+        '''
+         -------
+         |     |
+         |     O
+         |
+         |
+         |
+         |
+        -----------
+        ''',
+        '''
+         -------
+         |     |
+         |     O
+         |     |
+         |
+         |
+         |
+        -----------
+        ''',
+        '''
+         -------
+         |     |
+         |     O
+         |    [|
+         |
+         |
+         |
+        -----------
+        ''',
+        '''
+         -------
+         |     |
+         |     O
+         |    [|]
+         |    
+         |
+         |
+        -----------
+        ''',
+        '''
+         -------
+         |     |
+         |     O
+         |    [|]
+         |     v
+         |
+         |
+        -----------
+        '''
+    ]
+    return hangman_images[incorrect_attempts]
+
+while remaining_attempts > 0 and "-" in guessed_word:
+    print(display_hangman(6 - remaining_attempts))
+    print("")
+   
+    print("Letters you've guessed:")
+    print(guessed_letters)
+    print("")
+    
+    print("Current word status:\n", "".join(guessed_word))
+    print("")
+
+    guess = input("Enter your guess: ")
+    
+    guessed_letters.append(guess)
+
+    if guess in selected_word:
+        for i in range(len(selected_word)):
+            if selected_word[i] == guess:
+                guessed_word[i] = guess
+    else:
+        remaining_attempts -= 1
+
+if "-" not in guessed_word:
+    print("Congratulations! You guessed the word:", selected_word)
+else:
+    print("Incorrect guess.")
+
+if remaining_attempts == 0:
+    print("You've used up all your attempts. The correct word was", selected_word)
