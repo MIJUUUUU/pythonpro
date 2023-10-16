@@ -1,1 +1,25 @@
+scores= []
+while True:
+     print ('    High Scores Keeper\n')
+     print ('    0 - Exit')
+     print ('    1 - Show Scores')
+     print ('    2 - Add a Score')
 
+     print("Choice : ")
+     choice = int(input())
+     
+     
+
+     if choice == 0:
+          break;
+     if choice == 1:
+          print('High Scores\n')
+          print("NAME  SCORE")
+          for name, score in sorted(scores, key=lambda x: x[1], reverse=True):
+           print(name + "\t" + str(score))
+     if choice == 2:
+          name = input("What is player's name ? :")
+          score = int(input("What score did the player get?: "))
+          scores.append((name,score))
+          
+          continue;
