@@ -7,6 +7,9 @@ turn = ""
 human = ""
 com = ""
 
+#원래의 틱택톡 게임은 한줄이 되어도 판을 다 채워야 끝나기 때문에
+#판이 다 채워지면 끝이 나도록 하였다. 그리고 만약 이미 자리가 있는 곳에 배치를 
+#할려고 한다면 남은 자리를 알려주며 다시 선택하도록 한다.
 def main():
     print("Welcome to the ultimate intellectual challenge: Tic-Tac-Toe.")
     print("This is a showdown between the human brain and a silicon processor.\n")
