@@ -1,0 +1,128 @@
+X = "X"
+O = "O"
+EMPTY = ""
+SIZE = 9
+
+turn = ""
+human = ""
+com = ""
+
+def main():
+    print("Welcome to the ultimate intellectual challenge: Tic-Tac-Toe.")
+    print("This is a showdown between the human brain and a silicon processor.\n")
+
+    print("Make your move by entering a number from 0 to 8. The number corresponds to the board position as shown:\n")
+    print("\t0 | 1 | 2 ")
+    print("\t---------")
+    print("\t3 | 4 | 5 ")
+    print("\t---------")
+    print("\t6 | 7 | 8 \n")
+
+    print("Prepare yourself, human. The ultimate battle is about to begin.\n")
+    print("Do you want to make the first move? (y/n): ", end="")
+    choose = input("").lower()
+    
+    if choose == "y":
+        human = O
+        com = X
+        turn = human
+    else:
+        human = X
+        com = O
+        turn = com
+        
+    board = [EMPTY] * SIZE
+    showInstructions()
+    game = inGame(board)
+    
+    while game == "yes":
+        takeTurn(turn, board, human, com)
+        drawBoard(board, human, com)
+        
+        if checkwin(board, human, com) == "human":
+            print(win("human"))
+            break
+        elif checkwin(board, human, com) == "com":
+            print(win("computer"))
+            break
+        
+        turn = switchTurn(turn, human, com)
+        temp = inGame(board)
+        if temp == "yes":
+            game = "yes"
+        else:
+            break
+    
+    return ""
+
+def showInstructions():
+    print("\t0 | 1 | 2 ")
+    print("\t---------")
+    print("\t3 | 4 | 5 ")
+    print("\t---------")
+    print("\t6 | 7 | 8 ")
+
+def checkwin(b, h, c):
+    combinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
+    
+    for comb in combinations:
+        if b[comb[0]] == h and b[comb[1]] == h and b[comb[2]] == h:
+            return "human"
+        if b[comb[0]] == c and b[comb[1]] == c and b[comb[2]] == c:
+            return "com"
+    return "no"
+
+def drawBoard(b, h, c):
+    print("\n" + b[0] + " | " + b[1] + " | " + b[2])
+    print("---------")
+    print(b[3] + " | " + b[4] + " | " + b[5])
+    print("---------")
+    print(b[6] + " | " + b[7] + " | " + b[8] + "\n")
+
+def switchTurn(turn, h, c):
+    if turn == h:
+        return c
+    else:
+        return h
+
+def takeTurn(t, b, h, c):
+    if t == h:
+        legal = legalMoves(b)
+        index = int(input("\nWhere will you move? (0-8): "))
+        while index not in legal:
+            print("Invalid move. Try again.")
+            index = int(input("Choose from these available moves: " + str(legal)))
+        b[index] = h
+    else:
+        legal = legalMoves(b)
+        index = legal[0]
+        print("I will take square number: " + str(index))
+        b[index] = c
+
+def win(winner):
+    if winner == "human":
+        return "No, no!! It cannot be! Somehow you tricked me, human. But never again! I, the computer, so swears it!\n"
+    elif winner == "com":
+        return "As I predicted, human, I am triumphant once more. Proof that computers are superior to humans in all regards."
+    else:
+        return "We drew!"
+
+def inGame(b):
+    if len(legalMoves(b)) > 0:
+        return "yes"
+    return "no"
+
+def legalMoves(b):
+    legal = []
+    for i, square in enumerate(b):
+        if square == EMPTY:
+            legal.append(i)
+    return legal
+
+def setup_board(b):
+    for i in range(SIZE):
+        b.append(EMPTY)
+
+if __name__ == "__main__":
+    main()
+    print("Press the enter key to quit.")
