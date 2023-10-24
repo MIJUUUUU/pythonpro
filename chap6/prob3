@@ -1,1 +1,51 @@
 
+geek_terms = {"404": "clueless.", "Uninstalled": "being fired."}
+
+
+def print_custom_menu():
+    print("")
+    print("0. Exit")
+    print("1. Find a Geek Term")
+    print("2. Add a Geek Term")
+    print("3. Redefine a Geek Term")
+    print("4. Delete a Geek Term")
+    print("")
+
+
+while True:
+    print_custom_menu()
+    user_choice = input("Select an option: ")
+
+    if user_choice == "0":
+        print("Goodbye")
+        break
+    elif user_choice == "1":
+        term_to_find = input("Enter the term you want to look up: ")
+        if term_to_find in geek_terms:
+            term_definition = geek_terms[term_to_find]
+            print(f"{term_to_find}: {term_definition}")
+        else:
+            print(f"{term_to_find} not found.")
+    elif user_choice == "2":
+        new_term = input("Enter a new term: ")
+        new_definition = input(f"Enter the meaning of '{new_term}': ")
+        geek_terms[new_term] = new_definition
+        print(f"'{new_term}' has been successfully added.")
+    elif user_choice == "3":
+        term_to_redefine = input("Enter the term you want to redefine: ")
+        if term_to_redefine in geek_terms:
+            new_term_definition = input(f"Enter the new definition for '{term_to_redefine}': ")
+            geek_terms[term_to_redefine] = new_term_definition
+            print(f"'{term_to_redefine}' has been successfully updated.")
+        else:
+            print(f"'{term_to_redefine}' not found.")
+    elif user_choice == "4":
+        term_to_delete = input("Enter the term you want to delete: ")
+        if term_to_delete in geek_terms:
+            del geek_terms[term_to_delete]
+            print(f"'{term_to_delete}' has been deleted.")
+        else:
+            print(f"'{term_to_delete}' not found.")
+    else:
+        print("Invalid choice. Please try again.")
+
