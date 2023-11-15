@@ -1,14 +1,12 @@
 print("Input your string . . .")
 
-i = input[(">> ")]
-sen +=i
+i = input(">> ")
+sen = [i]
 
-while (input("") == "Q")
+if (input("") == "Q"):
  print("Your inputs are below ..")
- print(sen)
+ print(sen) 
+
  
- q = input("Write process has been finished.")
- if q == "Q":
-  break;
 
 
