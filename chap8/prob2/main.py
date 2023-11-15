@@ -5,6 +5,8 @@ text_file = open("write_it.txt", "w")
 text_file.write("Line 1\n")
 text_file.write("This is line2\n")
 text_file.write("That makes this line 3\n")
+text_file = open("write_it.txt", "r")
+print(text_file)
 print("")
 
 print("Creating a text file with the writeline<> method.")
@@ -13,6 +15,8 @@ print("Reading the newly created file.\n")
 text_file = open("write_it.txt", "w")
 lines = ["Line 1\n", "This is line 2\n", "That makes this line3\n"]
 text_file.writelines(lines)
+whole = text_file.read()
+print(whole)
 print("")
 print("")
 

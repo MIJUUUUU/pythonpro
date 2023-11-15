@@ -1,12 +1,17 @@
 print("Input your string . . .")
 
-i = input(">> ")
-sen = [i]
+while True:
+ text_file = open("write_it.txt", "w")
+ text_file.write = input(">> ")	
+ 
+ if (input(">> ") == 'Q'):
+	 break;
 
-if (input("") == "Q"):
- print("Your inputs are below ..")
- print(sen) 
-
+print("Your inputs are below ..\n")
+text_file = open("write_it.txt", "r")
+for line in text_file:
+		print (line)
+text_file.close()
  
 
 
