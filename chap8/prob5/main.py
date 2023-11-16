@@ -5,7 +5,7 @@ except:
  print("Something went wrong!")
 try:
  num = float(input("\nEnter a number: "))
-except:
+except(ValueError):
  print("That was not a number!")
 
 print("")
