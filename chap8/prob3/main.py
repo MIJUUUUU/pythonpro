@@ -1,16 +1,14 @@
 print("Input your string . . .")
+with open("write_it.txt", "w") as text_file:
+    while True:
+        user_input = input(">> ")
+        
+        if user_input.upper() == 'Q':
+            break
+        
+        text_file.write(user_input + '\n')
 
-while True:
- text_file = open("write_it.txt", "w")
-  
- if (input(">> ") == 'Q'):
-	 break;
- 
-text_file.close()
-print("Your inputs are below ..\n")
-text_file = open("write_it.txt", "r")
-print(text_file.read())
-text_file.close()
- 
+print("Your inputs are below...\n")
 
-
+with open("write_it.txt", "r") as text_file:
+    print(text_file.read())
