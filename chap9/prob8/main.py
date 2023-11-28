@@ -38,6 +38,10 @@ class Critter(object):
             self.boredom = 0
         self.__pass_time()
 
+    def talk(self):
+        print("I'm", self.name, "and I feel", self.mood, "now.\n")
+        self.__pass_time()
+
 
 class Food(object):
     """Food menu"""
@@ -78,26 +82,24 @@ def main():
         choice = input("Choice: ")
         print()
 
-        
         if choice == "0":
             print("Good-bye.")
-        
         elif choice == "1":
             crit.talk()
-        
         elif choice == "2":
             print("Food Menu:")
             for i, food in enumerate(food_menu, 1):
                 print(f"{i}. {food.name}")
-            food_choice = int(input("Choose a food item (1-3): "))
-            if 1 <= food_choice <= 3:
-                crit.feed(food_menu[food_choice - 1])
-            else:
-                print("Invalid food choice.")
-        
+            try:
+                food_choice = int(input("Choose a food item (1-3): "))
+                if 1 <= food_choice <= 3:
+                    crit.feed(food_menu[food_choice - 1])
+                else:
+                    print("Invalid food choice.")
+            except ValueError:
+                print("Invalid input. Please enter a number.")
         elif choice == "3":
             crit.play()
-       
         else:
             print("\nSorry,", choice, "isn't a valid choice.")
 
