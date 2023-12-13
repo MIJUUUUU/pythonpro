@@ -1,5 +1,5 @@
 
-string= input("Enter sentence: ")
+string= input("input your message: ")
 
 dic={}
 
